@@ -20,10 +20,10 @@ public class DetectCycleInGraph {
 		for (int i = 0; i < g.length; i++) {
 			if (visited[i] == 0 && !isCyclic) {
 				parent.put(i, null);
-				return DFS(g, i, visited, parent);
+				isCyclic =  DFS(g, i, visited, parent);
 			}
 		}
-		return false;
+		return isCyclic;
 	}
 
 	/**
