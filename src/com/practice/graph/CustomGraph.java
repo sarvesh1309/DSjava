@@ -6,6 +6,11 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * to created a directed graph use isdirectd paramater as true
+ * @author sarveshkumar
+ *
+ */
 public class CustomGraph {
 
 	Map<Vertex, Set<Vertex>> graph;
