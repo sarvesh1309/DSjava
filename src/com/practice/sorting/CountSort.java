@@ -4,7 +4,7 @@ public class CountSort {
 
 	public int[] sort(int[] input) {
 		// Aux array
-		int k[] = new int[100];
+		int k[] = new int[2000000];
 		// sorted array
 		int sorted[] = new int[input.length];
 		// update the aux array with the counting of occurrences in input array
@@ -20,7 +20,7 @@ public class CountSort {
 		// traverse in reverse order to make it stable
 		for (int i = input.length - 1; i >= 0; i--) {
 			sorted[k[input[i]] - 1] = input[i];
-			k[input[i]] = -1;
+			k[input[i]] = k[input[i]] - 1;
 		}
 
 		return sorted;
