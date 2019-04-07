@@ -1,5 +1,7 @@
 package com.practice.string;
 
+import java.util.HashMap;
+
 public class Trie {
 	TrieNode rootNode = null;
 
@@ -97,9 +99,20 @@ public class Trie {
 
 		if (shouldDeleteCurrentNode) {
 			currNode.childNode.remove(ch);
-			return currNode.childNode.size() == 0;
+			return currNode.childNode.isEmpty();
 		}
 		return false;
+	}
+
+}
+
+class TrieNode {
+	boolean end_of_string;
+	HashMap<Character, TrieNode> childNode;
+
+	public TrieNode() {
+		childNode = new HashMap<>();
+		end_of_string = false;
 	}
 
 }
