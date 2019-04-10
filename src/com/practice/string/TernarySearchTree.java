@@ -137,27 +137,71 @@ public class TernarySearchTree {
 	 */
 	private void traverseAllString(TSTNode curr, String word, List<String> list) {
 		if (curr != null) {
-			// traverse left string 
+			// traverse left string
 			traverseAllString(curr.left, word, list);
-			// append char of the current tstnode in word 
+			// append char of the current tstnode in word
 			word = word + curr.getData();
 			// if curr is the end of string then add this to list
-			if(curr.endOfString){
+			if (curr.endOfString) {
 				list.add(word);
 			}
-			
+
 			traverseAllString(curr.eq, word, list);
-			// remove the last element added as it would not be part of right tree string 
-			word = word.substring(0, word.length()-1);
+			// remove the last element added as it would not be part of right
+			// tree string
+			word = word.substring(0, word.length() - 1);
 			traverseAllString(curr.right, word, list);
 		}
 
 	}
 
+	public String findNextWord(String input) {
+		TSTNode curr = root;
+		String str = "";
+		String output = "";
+		findNextWord(curr, output, input, str, false);
+		System.out.println(output);
+		return output;
+	}
+
+	/**
+	 * 
+	 * @param curr
+	 * @param nextword
+	 * @param inputword
+	 * @param tempword
+	 * @param isPrevStringMatched
+	 */
+	private void findNextWord(TSTNode curr, String nextword, String inputword, String tempword,
+			boolean isPrevStringMatched) {
+		if (curr != null) {
+			// traverse left string
+			findNextWord(curr.left, nextword, inputword, tempword, isPrevStringMatched);
+			// append char of the current tstnode in word
+			tempword = tempword + curr.getData();
+			// if curr is the end of string then add this to list
+
+			if (curr.endOfString && isPrevStringMatched) {
+				nextword = tempword;
+				isPrevStringMatched = false;
+			}
+			if (curr.endOfString && (tempword.equalsIgnoreCase(inputword))) {
+				isPrevStringMatched = true;
+			}
+
+			findNextWord(curr.eq, nextword, inputword, tempword, isPrevStringMatched);
+			// remove the last element added as it would not be part of right
+			// tree string
+			tempword = tempword.substring(0, tempword.length() - 1);
+			findNextWord(curr.right, nextword, inputword, tempword, isPrevStringMatched);
+		}
+	}
+
 }
 
 /**
- * TST node class 
+ * TST node class
+ * 
  * @author sarveshkumar
  *
  */
