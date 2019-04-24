@@ -32,7 +32,7 @@ public class FindAllSquareSurroundedBySea {
 		}
 		boolean isSurroundedBySea = false;
 		visited[row][col]= 1;
-		// if all four direction of currne square is sea then it implies that it is surrounded by sea 
+		// if all four direction of current square is sea then it implies that currnet land square is surrounded by sea 
 		isSurroundedBySea = (row>0?FindLandSquaresSurroundedBySeaHelper(array,visited,row-1,col):false)&&
                              (row<(array.length-1)?FindLandSquaresSurroundedBySeaHelper(array,visited,row+1,col):false)&&
                              (col>0?FindLandSquaresSurroundedBySeaHelper(array,visited,row,col-1):false)&&
