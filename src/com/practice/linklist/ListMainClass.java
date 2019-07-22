@@ -1,7 +1,5 @@
 package com.practice.linklist;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 public class ListMainClass {
 
 	public static void main(String[] args) {

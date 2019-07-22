@@ -1,18 +1,20 @@
 package com.practice.sorting;
 
+import java.util.Arrays;
+
 public class SortingMainClass {
-	
-	
-	public static void main(String s[]){
+
+	public static void main(String s[]) {
+
+		int nut[]=new int[]{2,4,8,3,5};
+		 int bolt[] = new int []{4,2,8,5,3};
 		
-		int[][] arrayToBeSorted = new int[][]{{2,4,7,8},{1,4,8,9},{0,1,3,7},{5,6,8,9,}};
-		KwayMergeSorted sorting  = new KwayMergeSorted();
-		int output[] = sorting.sort(arrayToBeSorted);
-	
-		System.out.println("final sorted array");
-		for(int print:output){
-			System.out.println(print);
-			}
+		 NutsBoltsProblem nutBolt = new NutsBoltsProblem();
+		 nutBolt.matchNutBolts(nut, bolt);
+		 System.out.println("nuts"+Arrays.toString(nut));
+		 System.out.println("bolts"+Arrays.toString(bolt));
+
+		
 	}
 
 }

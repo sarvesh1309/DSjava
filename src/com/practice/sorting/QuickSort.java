@@ -24,9 +24,9 @@ public class QuickSort {
 	private void quickSortHelper(int[] input, int low, int high) {
 		if (high > low) {
 			// find partition point
-			int pivot = partitionRightImproved(input, low, high);
+			int pivot = partitionMiddle(input, low, high);
 			quickSortHelper(input, low, pivot - 1);
-			quickSortHelper(input, pivot + 1, high);
+			quickSortHelper(input, pivot, high);
 		}
 
 	}
