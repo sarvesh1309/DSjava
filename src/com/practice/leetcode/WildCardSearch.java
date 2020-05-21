@@ -102,5 +102,30 @@ public class WildCardSearch {
 		return lookup[s.length()][p.length()];
 
 	}
+	
+	public int isMatchDIff(final String A, final String B) {
+	       boolean [][]dp = new boolean[A.length()+1][B.length()+1];
+	       // making entry as true for empty pattern
+	       dp[0][0] = true;
+	       // for * empty source pattern match would be true otherwise false
+	       int k =1;
+	       while(k <= B.length() && B.charAt(k-1) =='*'){
+	           dp[0][k-1] =true;
+	           k++;
+	       }
+	       for(int i =1;i<=A.length();i++){
+	           for(int j =1;j<=B.length();j++){
+	              if(B.charAt(j-1) == A.charAt(i-1) || B.charAt(j-1) == '?'){
+	                  dp[i][j] = dp[i-1][j-1];
+	              }else if(B.charAt(j-1) == '*'){
+	                  dp[i][j] = dp[i-1][j] || dp[i][j-1];
+	              }
+	           }
+	       }
+	      
+	      // System.out.println(dp[A.length()][B.length()]);
+	       return (dp[A.length()][B.length()] == true ? 1: 0 );
+	    }
+	    
 
 }

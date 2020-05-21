@@ -66,7 +66,7 @@ public class DetectCycleInGraph {
 	}
 
 	/**
-	 * return true if there is a cycle in given acyclic directed graph
+	 * return true if there is a cycle in given  directed graph
 	 * 
 	 * @param graph
 	 * @return
